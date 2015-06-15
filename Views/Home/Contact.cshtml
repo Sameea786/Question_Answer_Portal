@@ -1,0 +1,41 @@
+﻿@{
+    
+}
+
+<!DOCType html>
+<html>
+<head>
+    <title></title>
+    <style>
+        input[type='text'] {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="font-family: Nyala;font-size:30px">
+        <div class="row">
+            <div class="col-sm-8 pull-left" >
+                <div style="background-color:#808080" >
+                    <form action="/Home/ContactUs" method="get" style="padding-left: 3em;padding-top:2em; padding-bottom:1em;" class="form-group">
+                        <p style="font-size: 70px; color: #641d40;"> Say Hello!</p>
+                        
+       Name      <input type="text" style=" width:350px; height:40px " name="name" required class="form-control" /> <br />
+
+      Email       <input type="email" style=" width:350px; height:40px" placeholder="name@gmail.com" name="email" required class="form-control" /><br />
+
+       Message   <input type="text" style="width: 400px; height: 150px" name="message1" required class="form-control" /><br />
+
+                        <input type="submit" value="Submit" style="" />
+       
+                        </form>
+</div>
+            </div>
+            @*<div class="col-sm-4 pull-right">
+                <img src="~/Content/themes/base/images/e.jpg" height="475" width="400" style="margin-top:15em;margin-right:4em;margin-bottom:2em" />
+            </div>*@
+        </div>
+    </div>
+</body>
+</html>
+

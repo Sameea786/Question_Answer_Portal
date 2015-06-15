@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/View1.cshtml"; ;
+}
+@using _1.Models;
+@using System.Data;
+@using System.Web.Mvc;
+
+<!DOCYYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+    <title></title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <div class="container">
+        
+            <div class="row">
+                <div class="col-sm-5 pull-left" style="margin-top:2em;margin-left:4em">
+                    @foreach(var e in Model)
+                    {
+                    <article class="question question-type-normal" style=" font-family:imprint mt shadow; color:#870aac; font-size:15px">
+                        <h2 style=" font-family:imprint mt shadow; color:#870aac; font-size:30px">
+                            Answer
+                        </h2>
+
+                        <a class="question-report pull-right" href="#">Report</a>
+                        <div class="question-inner">
+                            <div class="clearfix"></div>
+                            <pre> <p class="question-desc" style=" font-family: imprint mt shadow; color :#870aac; font-size: 15px"<p>@e.answer1</p></pre>
+
+                            <span class="question-date"><i class="icon-time"></i>4 mins ago</span>
+                            <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </article>
+                    }
+
+                    
+                    <h2 style=" font-family:imprint mt shadow; color:#870aac; font-size:30px">
+                        Answer
+                    </h2>
+                    <textarea style="width:200px;height:100px"></textarea>
+
+
+                </div>
+               
+            </div>
+            </div>
+        </div>
+</body>
+</html>
+

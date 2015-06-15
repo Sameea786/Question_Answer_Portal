@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/View1.cshtml";
+}
+@model _1.Models.user
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/Content/lib/jquery-1.10.1.min.js"></script>
+    <script src="~/Content/lib/jquery-1.9.0.min.js">
+    </script>
+<script src="~/Content/source/jquery.fancybox.js"></script>
+    <script src="~/Content/source/jquery.fancybox.pack.js"></script>
+    <link href="~/Content/source/jquery.fancybox.css" rel="stylesheet" />
+    <script src="~/Content/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-thumbs.js"></script>
+    <link href="~/Content/source/helpers/jquery.fancybox-thumbs.css" rel="stylesheet" />
+    <script src="~/Content/source/helpers/jquery.fancybox-media.js"></script>
+    <script src="~/Content/source/helpers/jquery.fancybox-buttons.js"></script>
+    <link href="~/Content/source/helpers/jquery.fancybox-buttons.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            /*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+            $('.fancybox').fancybox();
+        });
+            </script>
+
+            </head>
+            <body>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <p style="font-family: Imprint MT Shadow; color: #870aac; font-size: 50px"> Profile</p>
+                        <a href="~/Profile/@Model.picid" class="fancybox" ><img class="img-circle" width="100" height="100" src="/Profile/@Model.picid" /></a>
+                    </div>
+                    <div class="col-sm-5 pull-right ">
+                        <form name="nam2" style="text-align:center" action="/User/SaveUser" enctype="multipart/form-data" method="post">
+            <pre>
+              <input type="text" name="Id" value="@Model.Id" style="visibility:hidden"/>
+            <input type="text" placeholder="First Name" style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px" name="name" value="@Model.name"/>
+
+            <input type="text" placeholder="Last Name" style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px" name="lname" value="@Model.status" />
+
+            <input type="email" placeholder="Email" style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px" name="email" value="@Model.email"/>
+
+            <input type="password" placeholder="*****" style="font-family: Imprint MT Shadow; color: #b416db; width: 300px; height: 35px; font-size: 15px" name="password" value="@Model.password" />
+
+            <input type="submit" value="Update" style="width: 150px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 20px" />
+
+            <input type="file" name="picid" required />
+            </pre>
+                            <p class="help-block">picture is uploaded</p>
+                        </form>
+                    </div>
+                    <script>
+
+    </script>
+    </div>
+</body>
+</html>

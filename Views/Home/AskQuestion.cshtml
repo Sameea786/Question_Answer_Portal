@@ -1,0 +1,62 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body style="background-color :rgb(219, 224, 156)">
+
+    <div class="container">
+        <nav class="navbar navbar-default navbar-inverse " role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#" style="font-family: Imprint MT Shadow; color: #bbf137; font-size: 50px">Ask Me </a>
+                </div>
+                <div class=" navbar-inverse pull-right">
+                    <a class=" navbar-brand " href="/User/About" style="font-family: Britannic Bold;color:#bbf137">About us</a>
+                </div>
+                <div class=" navbar-inverse pull-right">
+                    <a class=" navbar-brand" href="/User/Contact" style="font-family: Britannic Bold;color:#bbf137">Contact </a>
+                </div>
+
+
+                <div class=" navbar-inverse pull-right">
+                    <a class=" navbar-brand" href="User/AskQuestion" style="font-family: Britannic Bold;color:#bbf137">Ask Question</a>
+                </div>
+                <div class=" navbar-inverse pull-right">
+                    <a class=" navbar-brand" href="/Home/Index" style="font-family: Britannic Bold;color:#bbf137">Sign out</a>
+                </div>
+                <div class=" navbar-inverse pull-right">
+                    <a class=" navbar-brand" href="/User/Index" style="font-family: Britannic Bold;color:#bbf137">Home</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="container">
+            <div class="col-sm-8 pull-left">
+
+                <p style="font-family: Imprint MT Shadow; color: #870aac; font-size: 50px"> Ask Question</p>
+                <form action="/Home/home" method="post" name="form1">
+<pre style="font-size:20px; font-family: Imprint MT Shadow; color: #870aac">
+Choose Catagory  <select style="font-family: Imprint MT Shadow; font-size: 20px"><option>Window</option><option>Operating System</option><option>Networks</option></select>
+Question              <input type="text" name="input1" style=" width:390px ; height:70px" />
+
+                    <input type="submit" value="Post" />
+</pre>
+                </form>
+            </div>
+
+            <div class="col-sm-4 pull-right ">
+
+                <img src="~/Content/themes/base/images/k.jpg" class="img-responsive" style="margin-top:5em;margin-bottom:1em;margin-left:4em" />
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+</body>
+</html>

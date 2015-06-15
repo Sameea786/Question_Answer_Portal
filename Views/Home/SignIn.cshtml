@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "SignIn";
+}
+@Html.ValidationSummary(true);
+@model _1.Models.user
+<!DOCTYPE html>
+<Html>
+<head>
+   
+
+    <title></title>
+</head>
+<body>
+    <div class="container" style="color: #641d40; font-family: Nyala; ">
+        <div class="row">
+            
+                <div class="col-sm-5 pull-left">
+                    <p style="font-family: Imprint MT Shadow; font-size: 20px; background-color: #06b992; color: #FFFFFF ;text-align:center ">Sign In</p>
+                    
+                        @using (Html.BeginForm("SignIn", "Home", FormMethod.Get))
+{
+    <pre style="background-color:#c2baba;">
+       @Html.ValidationSummary(true)
+       @Html.LabelFor(m => m.email)
+       @Html.TextBoxFor(m => m.email)
+       @Html.ValidationMessageFor(m => m.email)
+    <br />
+       @Html.LabelFor(m => m.password)
+       @Html.PasswordFor(m => m.password)
+        
+        <input type="submit" value="Sign In" style="font-family: Imprint MT Shadow; font-size: 20px; background-color: #06b992; color: #FFFFFF" required />
+
+</pre>
+
+
+}
+                       
+
+
+                        @Scripts.Render("~/bundles/jquery")
+                        @Scripts.Render("~/bundles/jqueryval")
+                        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+                        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+
+                        <img src="/Content/themes/base/images/ask.jpg" />
+</div>
+           
+            <div class="container">
+                <div class="col-sm-6 pull-right">
+
+                    <p style="font-family: Imprint MT Shadow; font-size: 20px; background-color: #06b992; color: #FFFFFF ;text-align:center" >Sign Up</p>
+                    <form name="nam2" style="text-align: center; margin-top: 2em; background-color: #c2baba" action="/Home/Signup" enctype="multipart/form-data" method="post">
+
+
+                        <input type="text" placeholder="First Name" style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px" name="name" required /><br /><br />
+
+                        <input type="text" placeholder="Last Name" style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px" name="lname" required /><br /><br />
+
+                        <input type="email" placeholder="Email" style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px" name="email" required id="b2" /><br />
+                        <input type="button" id="b1" value="Check" /><br /><br />
+                        <div id="result"></div>
+                        <input type="password" placeholder="*****" style="font-family: Imprint MT Shadow; color: #b416db; width: 300px; height: 35px; font-size: 15px" name="password" required /><br /><br />
+
+                        <input type="submit" value="Sign up" style="width: 150px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 20px; background-color: #06b992; color: #FFFFFF " /><br />
+                        <input type="file" multiple name="picid" required />
+                        <p class="help-block">picture is uploaded</p>
+                        
+                       
+                        @Scripts.Render("~/bundles/jquery")
+                        <script>
+
+                            $(document).ready(function () {
+                                $('#b1').click(function () {
+
+                                    var userName = $('#b2').val();
+
+                                    //alert('User Name ='+ userName);
+
+                                    $.getJSON("/Home/CheckUserName?UserName=" + userName, function (data) {
+                                        $('#checking').hide();
+                                        if (data) {
+                                            $('#result').text("User already exists in database");
+                                           alert("Email is exsist please try different");
+
+                                        }
+                                        else {
+                                            $('#result').text("User Name is available");
+                                            alert("Email exi");
+                                        }
+                                    });
+
+                                });
+
+                            });
+                        </script>
+                    </form>
+                </div>
+            </div>
+
+            </div>
+</body>
+</Html>

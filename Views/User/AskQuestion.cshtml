@@ -1,0 +1,51 @@
+﻿@{
+    Layout ="~/Views/View1.cshtml";
+}
+@*@model List<Catagory>*@
+@using _1.Models
+@model IEnumerable<string>
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+
+    </style>
+   
+</head>
+<body >
+    <div class="container">
+        <div class="col-sm-8">
+            <div class="row">
+                <p style="font-family: Imprint MT Shadow; color: #641d40; font-size: 50px"> Ask Question</p>
+                <form action="/User/Ask" style="font-family:Imprint MT Shadow;font-size:20px" >
+                    <p style="font-size:30px">Catagory</p>
+                    @foreach (var e in Model)
+                    {
+                        <input type="checkbox" name="catagory" id="@e"  value="@e"/>@e
+                        <br />
+                        <br />
+                    }
+              @if(Model.Any())
+                    {
+                  string.Join(", ", Model.ToArray());
+                    }
+
+                    Title        <input type="text" name="title" required />
+                    <br />
+                    <br />
+                    Tag      <input type="text" name="tag" />
+                    <br /><br />
+
+                    <div class="form-group">
+                        Question          <input class="form-control input-sm-2" type="text" name="question1" style="height:250px" required />
+                    </div>
+                    <input type="submit" value="Submit" />
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

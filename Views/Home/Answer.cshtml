@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Answer";
+}
+
+<!DOCYYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5 pull-left" style="margin-top:2em;margin-left:4em">
+                @foreach( var c in Model)
+                { 
+                <article class="question question-type-normal" style=" font-family:imprint mt shadow; color:#870aac; font-size:15px">
+                    <h2 style=" font-family:imprint mt shadow; color:#870aac; font-size:30px">
+                        Answer
+                    </h2>
+
+                    <a class="question-report pull-right" href="#">Report</a>
+                    <div class="question-inner">
+                        <div class="clearfix"></div>
+                        <pre> <p class="question-desc" style=" font-family: imprint mt shadow; color :#870aac; font-size: 15px"<p>Linux and Windows are two different types of operating systems. Linux is the most popular operating system for web servers. Since Linux-based hosting is more popular, it has more of the features web designers expect.  So unless you have websites which need specific Windows applications, Linux is the preferred choice.</p></pre>
+
+                        <span class="question-date"><i class="icon-time"></i>4 mins ago</span>
+                        <span class="question-comment"><a href="#"><i class="icon-comment"></i>5 Answer</a></span>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </article>
+                }
+                <h2 style=" font-family:imprint mt shadow; color:#870aac; font-size:30px">
+                    Answer
+                </h2>
+                <textarea style="width:300px;height:100px"></textarea> 
+                
+
+                    
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
+

@@ -1,0 +1,171 @@
+﻿@using _1.Models
+@model List<Question>
+@{
+    comunityEntities2 fe = new comunityEntities2();
+    int i = 0;
+}
+
+@using System.Data;
+@using System.Web.Mvc;
+
+<!DOCYYPE html>
+<html>
+<head>
+     <title></title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body style="font-family: nyala; color:whitesmoke; " >
+    
+    <div class="row">
+
+        <div class="col-sm-5 pull-left" style="padding-top:100px">
+
+            <form name="nam1" action="~/Home/search" method="get">
+                
+<input type="text" placeholder="search" style=" font-size: 20px; width: 350px; " name="ques" /> <button style="font-size: 20px">Search</button>
+
+            </form>
+
+
+            <div class="Grouplist" style="">
+                <h3 style="font-size: 35px;">Catagory</h3>
+                <div class="list-group" style="color: #870aac; font-size :30px">
+                    @foreach (Catagory c in fe.Catagories.ToList())
+                    {
+                       <div id="now" class="nowclass"><a href="#">@c.name</a><input value="@c.Id" class="Menuclass" /></div>
+                    }
+                </div>
+
+                <div>
+                    <img src="\Content\themes\base\images\su.jpg" />
+                    <img src="/Content/themes/base/images/r.jpg" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 pull-right" style=" font-family:Nyala; color: #06b992; font-size: 20px">
+
+           
+            <div style="background-color:#c3d6e4">
+                <div id="shoo"></div>
+                <div id="show1">
+                    @foreach (var a in Model)
+                    {
+
+                        <article class="question question-type-normal" style="color:#641d40">
+                            <h2 style="color:#641d40;font-size:50px" class="back">
+                                Question
+                            </h2>
+                            <a class="question-report pull-right" href="#"> Report</a>
+
+                            <div class="question-author">
+                                @if (a.user.picid != null)
+                                {
+                                    <a href="#" title="Ahmed" class="question-author-img tooltip-n"><span></span><img class="img-circle" width="100" height="100" src="/Profile/@a.user.picid" /></a>
+                                    <h2>@a.user.name</h2>
+                                }
+                                @if (a.user.picid == null)
+                                {
+                                    <a href="#" title="Ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://2code.info/demo/html/ask-me/images/demo/avatar.png"></a>
+                                    <h1 style=" color:#a3424b ; font-size:25px ">@a.user.name</h1>
+
+                                }
+                            </div>
+                            <div class="question-inner" style="margin: 10px; background-color: black; opacity: 0.8; filter: alpha(opacity=60); ">
+                                <div class="clearfix"></div>
+                                <pre><p class="question-desc" style="color: #315596; font-family:Times New Roman ; font-size: 25px">@a.question1 ?</p></pre>
+                                <div class="question-details">
+                                </div><span class="question-answered question-answered-done"><i class="icon-ok"></i>@a.status</span>
+                                <span class="question-favorite"><i class="icon-star"></i>@a.likes</span>
+                                <span class="question-comment">
+                                    Likes
+                                    @*@Html.ActionLink("Likes", "QuestioLikes", new { obj = a.Id })*@
+                                </span>
+                                <span class="question-date"><i class="icon-time"></i>@a.date</span>
+                            </div>
+                        </article>
+                        <hr style="color:#56dbc6" />
+                        foreach (var b in a.Ans)
+                        {
+                            <div style="background-color:whitesmoke">
+                                <article class="question question-type-normal" style="color:#641d40 ; font-size:25px">
+                                    <h2>
+                                        Answer
+                                    </h2>
+                                    <a class="question-report pull-right" href="/User/Report">Report</a>
+                                    @if (a.user.picid != null)
+                                    {
+                                        <a href="#" title="Ahmed" class="question-author-img tooltip-n"><span></span><img class="img-circle" width="100" height="100" src="/Profile/@a.user.picid" /></a>
+                                    }
+                                    @if (a.user.picid == null)
+                                    {
+                                        <a href="#" title="Ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://2code.info/demo/html/ask-me/images/demo/avatar.png"></a>
+                                    }
+                                    <div class="question-inner">
+                                        <div class=" clearfix"></div>
+                                        <pre> <p class="question-desc" style=" color:#655c5c">@b.answer</p></pre>
+                                        @if (ViewBag.ForUnlike == 0)
+                                        {
+
+                                            <span class="question-favorite"><i class="icon-star"></i>@b.likes</span>
+                                            <span class="question-comment">
+                                                Likes
+                                                @*@Html.ActionLink("Likes", "Save", new { obj = b.Id })*@
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="question-favorite"><i class="icon-star"></i>@b.likes</span>
+                                            <span class="question-comment">
+                                                Likes
+                                                @*@Html.ActionLink("Likes", "Save", new { obj = b.Id })*@
+                                            </span>
+                                        }
+                                        <span class="question-date"><i class="icon-time"></i>@b.data</span>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </article>
+                                <hr />
+                            </div>
+                        }
+
+
+                    }
+                </div>
+                
+               
+            </div>
+
+          
+
+
+        </div>
+
+    </div>
+  
+    <script>
+        $('document').ready(function ()
+        {
+            $('.Menuclass').hide();
+          
+            $('.nowclass').click(function ()
+              
+            {
+                var value=$(this).find('input').val();
+                $('#shoo').load("/Home/Catagory?obj=" + value)
+                $('#show1').hide();
+            });
+        });
+        
+
+
+    </script>
+
+    
+
+
+</body>
+
+</html>
