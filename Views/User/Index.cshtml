@@ -94,20 +94,23 @@
                                             </article>
                     <hr style="color:#56dbc6" />
                             foreach (var b in a.Ans)
-                    {
+                            {
+                                user e = fe.users.Select(x => x).Where(x => x.Id.Equals(b.post_id)).First();
                         <div style="background-color:whitesmoke">
                             <article class="question question-type-normal" style="color:#641d40 ; font-size:25px">
                                 <h2>
                                     Answer
                                 </h2>
                                 <a class="question-report pull-right" href="/User/Report">Report</a>
-                                @if (a.user.picid != null)
+                                @if (e.picid != null)
                                 {
-                                    <a href="#" title="Ahmed" class="question-author-img tooltip-n"><span></span><img class="img-circle" width="100" height="100" src="/Profile/@a.user.picid" /></a>
+                                    <a href="#" title="Ahmed" class="question-author-img tooltip-n"><span></span><img class="img-circle" width="100" height="100" src="/Profile/@e.picid" /></a>
+                                    <h2>@e.name</h2>
                                 }
-                                @if (a.user.picid == null)
+                                @if (e.picid == null)
                                 {
                                     <a href="#" title="Ahmed" class="question-author-img tooltip-n"><span></span><img alt="" src="http://2code.info/demo/html/ask-me/images/demo/avatar.png"></a>
+                                    <h2>@e.name</h2>
                                 }
                                 <div class="question-inner">
                                     <div class=" clearfix"></div>

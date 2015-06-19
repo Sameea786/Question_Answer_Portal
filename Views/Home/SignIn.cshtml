@@ -21,12 +21,11 @@
 {
     <pre style="background-color:#c2baba;">
        @Html.ValidationSummary(true)
-       @Html.LabelFor(m => m.email)
-       @Html.TextBoxFor(m => m.email)
+       @Html.LabelFor(m => m.email, new {style="width: 300px; height: 35px; font-family: Imprint MT Shadow; font-size: 15px" }) 
+       @Html.TextBoxFor(m => m.email, new  { style="width: 300px; height: 35px; font-family: Imprint MT Shadow; font-size: 15px"})
        @Html.ValidationMessageFor(m => m.email)
-    <br />
-       @Html.LabelFor(m => m.password)
-       @Html.PasswordFor(m => m.password)
+       @Html.LabelFor(m => m.password, new {style ="width: 300px; height: 35px; font-family: Imprint MT Shadow; font-size: 15px "})
+       @Html.PasswordFor(m => m.password, new { style = "width: 300px; height: 35px; font-family: Imprint MT Shadow;  font-size: 15px " })
         
         <input type="submit" value="Sign In" style="font-family: Imprint MT Shadow; font-size: 20px; background-color: #06b992; color: #FFFFFF" required />
 
@@ -53,7 +52,7 @@
                     <form name="nam2" style="text-align: center; margin-top: 2em; background-color: #c2baba" action="/Home/Signup" enctype="multipart/form-data" method="post">
 
 
-                        <input type="text" placeholder="First Name" style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px" name="name" required /><br /><br />
+                        <input type="text" placeholder="First Name"  style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px; margin-top: 4em" name="name" required /><br /><br />
 
                         <input type="text" placeholder="Last Name" style="width: 300px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 15px" name="lname" required /><br /><br />
 
@@ -63,7 +62,7 @@
                         <input type="password" placeholder="*****" style="font-family: Imprint MT Shadow; color: #b416db; width: 300px; height: 35px; font-size: 15px" name="password" required /><br /><br />
 
                         <input type="submit" value="Sign up" style="width: 150px; height: 35px; font-family: Imprint MT Shadow; color: #b416db; font-size: 20px; background-color: #06b992; color: #FFFFFF " /><br />
-                        <input type="file" multiple name="picid" required />
+                        <input type="file" name="picid" required />
                         <p class="help-block">picture is uploaded</p>
                         
                        
